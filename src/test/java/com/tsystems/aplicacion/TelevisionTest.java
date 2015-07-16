@@ -41,37 +41,57 @@ public class TelevisionTest {
     }
     @Test
     public void brandCorrectoAlCambiarlo(){
-        tele.setBrand("LG");
-        assertEquals("LG", tele.getBrand());
+        tele.setBrand("Sony");
+        assertEquals("Sony", tele.getBrand());
+    }
+    @Test
+    public void brandCorrectoAlCambiarloZenith(){
+        tele.setBrand("Zenith");
+        assertEquals("Zenith", tele.getBrand());
+    }
+    @Test
+    public void brandCorrectoAlCambiarloHitachi(){
+        tele.setBrand("Hitachi");
+        assertEquals("Hitachi", tele.getBrand());
+    }
+    @Test
+    public void brandCorrectoAlCambiarloRCA(){
+        tele.setBrand("RCA");
+        assertEquals("RCA", tele.getBrand());
+    }
+    @Test
+    public void brandCorrectoAlCambiarloNoValido(){
+        tele.setBrand("RCA2");
+        assertThat(tele.getBrand(),not(is("RCA2")));
     }
 
     @Test
     public void dameMarcaYVolumen(){
-        assertEquals(":0",tele.dameMarcaYVolumen());
+        assertEquals("RCA:0",tele.dameMarcaYVolumen());
     }
     @Test
     public void dameMarcaYVolumenConDatos(){
-        tele.setBrand("LG");
+        tele.setBrand("Sony");
         tele.setVolume(2);
-        assertEquals("LG:2",tele.dameMarcaYVolumen());
+        assertEquals("Sony:2",tele.dameMarcaYVolumen());
     }
 
     @Test
     public void compruebaToString() {
-        assertThat(tele.toString(), is("Television{brand='', volume=0}"));
+        assertThat(tele.toString(), is("Television{brand='RCA', volume=0}"));
     }
     @Test
     public void compruebaToStringConDatos(){
-        tele.setBrand("LG");
+        tele.setBrand("Sony");
         tele.setVolume(2);
-        assertThat(tele.toString(), is("Television{brand='LG', volume=2}"));
+        assertThat(tele.toString(), is("Television{brand='Sony', volume=2}"));
     }
 
     @Test
     public void compruebaContructorConParametros(){
-        tele= new Television(10, "LG");
+        tele= new Television(10, "Sony");
         assertThat(tele.getVolume(), is(10));
-        assertThat(tele.getBrand(),is("LG"));
+        assertThat(tele.getBrand(),is("Sony"));
     }
     @Test
     public void compruebaConstantes(){

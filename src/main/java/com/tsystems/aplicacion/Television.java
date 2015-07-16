@@ -10,7 +10,7 @@ public class Television {
     private int volume;
 
     public Television(){
-        this(0, "");
+        this(0, "RCA");
     }
 
     public Television(int volumen, String brand) {
@@ -23,7 +23,12 @@ public class Television {
     }
 
     public void setBrand(String brand) {
-        this.brand = brand;
+        if(     brand.equals("RCA") ||
+                brand.equals("Hitachi")||
+                brand.equals("Zenith")||
+                brand.equals("Sony")) {
+            this.brand = brand;
+        }
     }
 
     public int getVolume() {
