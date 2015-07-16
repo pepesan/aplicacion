@@ -101,5 +101,33 @@ public class App
         Worker w=new Worker();
         w.sleepMore(yourClock);
         System.out.println(yourClock.getSnoozeInterval());
+
+
+        String s="Hola Strings";
+        s=new String("Hola Strings");
+        s+=" y a Pepe";
+        StringBuffer buffer=new StringBuffer();
+        buffer.append("Hola");
+        String cad=buffer.toString();
+        StringBuilder builder=new StringBuilder();
+        builder.append("Hola");
+        cad=builder.toString();
+
+        int[] iArray = new int[7];
+        iArray[0] = 10;
+        iArray[6] = 100;
+
+        int[] tenPrimes = {2,3,5,7,11,13,17,19,23,29};
+        int firstPrime = tenPrimes[0];
+
+        AlarmClock[] clockArray = new AlarmClock[10];
+        clockArray[0] = new AlarmClock();
+        for (int i=0;i<10;i++){
+            clockArray[i]= new AlarmClock();
+        }
+        AlarmClock []clockArray2 = {new AlarmClock(),new AlarmClock(100) };
+        String[] nameArray = new String[7];
+        nameArray[0] = "Jon";
+        nameArray[6] = "Kate";
     }
 }
