@@ -30,6 +30,10 @@ public class TelevisionTest {
         assertEquals(0,tele.getVolume());
     }
     @Test
+    public void mutedCorrectoAlIniciar(){
+        assertThat(tele.getMuted(), is(false));
+    }
+    @Test
     public void volumenCorrectoAlIniciar2() {
         assertThat(tele.getVolume(), is(0));
     }
@@ -42,6 +46,11 @@ public class TelevisionTest {
     public void volumenCorrectoAlCambiarlo(){
         tele.setVolume(2);
         assertEquals(2, tele.getVolume());
+    }
+    @Test
+    public void mutedCorrectoAlCambiarlo(){
+        tele.setMuted(true);
+        assertThat(tele.getMuted(), is(true));
     }
     @Test
     public void brandCorrectoAlCambiarlo(){
@@ -66,12 +75,12 @@ public class TelevisionTest {
     @Test
     public void brandCorrectoAlCambiarloNoValido(){
         tele.setBrand("RCA2");
-        assertThat(tele.getBrand(),not(is("RCA2")));
+        assertThat(tele.getBrand(), not(is("RCA2")));
     }
 
     @Test
     public void dameMarcaYVolumen(){
-        assertEquals("RCA:0",tele.dameMarcaYVolumen());
+        assertEquals("RCA:0", tele.dameMarcaYVolumen());
     }
     @Test
     public void dameMarcaYVolumenConDatos(){
@@ -124,5 +133,22 @@ public class TelevisionTest {
             ret=false;
         }
         assertThat(ret,is(true));
+    }
+
+    @Test
+    public void pruebaQueMuteaCorrectamente(){
+        tele.setVolume(10);
+        tele.mute();
+        assertThat(tele.getVolume(),is(0));
+    }
+    @Test
+    public void pruebaQueMuteaCorrectamenteDosVeces(){
+        tele.setVolume(10);
+        tele.mute();
+        assertThat(tele.getVolume(), is(0));
+        assertThat(tele.getMuted(), is(true));
+        tele.mute();
+        assertThat(tele.getVolume(), is(10));
+        assertThat(tele.getMuted(),is(false));
     }
 }
