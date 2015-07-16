@@ -5,8 +5,22 @@ package com.tsystems.aplicacion;
  */
 public class AlarmClock {
     // declare and initialize an instance variable
-    private  int snoozeInterval = 5;
-
+    private  int snoozeInterval;
+    private long currentTime = 0;
+    // Create an AlarmClock with the default snooze time
+    public AlarmClock() {
+        //snoozeInterval = 0;
+        this(0);
+    }
+    // Create an AlarmClock with the specified snooze time
+    public AlarmClock(int snoozeIn) {
+        //setSnoozeInterval(snoozeIn);  // Why do it this way?
+        this(snoozeIn,0);
+    }
+    public AlarmClock(int snoozeIn, long currentIn) {
+        setSnoozeInterval(snoozeIn);
+        setCurrentTime(currentIn);
+    }
     public int getSnoozeInterval() {
         return snoozeInterval;
         // Must return an int
@@ -25,5 +39,28 @@ public class AlarmClock {
     @Override
     public String toString() {
         return "You're set to snooze for: " + snoozeInterval;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AlarmClock that = (AlarmClock) o;
+
+        if (snoozeInterval != that.snoozeInterval) return false;
+        return currentTime == that.currentTime;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = snoozeInterval;
+        result = 31 * result + (int) (currentTime ^ (currentTime >>> 32));
+        return result;
+    }
+
+    public void setCurrentTime(long currentTime) {
+        this.currentTime = currentTime;
     }
 }
