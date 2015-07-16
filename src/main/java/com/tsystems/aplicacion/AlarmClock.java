@@ -21,4 +21,9 @@ public class AlarmClock {
         public void snooze() {
         System.out.println("ZZZZZ");
     }
+    // Here's a very simple version
+    @Override
+    public String toString() {
+        return "You're set to snooze for: " + snoozeInterval;
+    }
 }
