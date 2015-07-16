@@ -15,6 +15,9 @@ import static org.hamcrest.CoreMatchers.is;
  * Created by pepesan on 16/7/15.
  */
 public class TelevisionTest {
+    /**
+     * Inicializo un objeto con el constructor sin params
+     */
     Television tele;
     @Before
     public void setUp(){
