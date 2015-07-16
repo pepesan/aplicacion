@@ -21,6 +21,7 @@ public class TelevisionTest {
     Television tele;
     @Before
     public void setUp(){
+        //se inicializa con un const. sin params
         tele=new Television();
     }
 
