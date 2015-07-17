@@ -7,9 +7,14 @@ public class TimePiece {
     private long currentTime;
 
     public TimePiece() {
-        currentTime=0;
+        this(0);
     }
-
+    public TimePiece(long d) {
+        currentTime = d;
+    }
+    public void displayCurrentTime() {
+        System.out.println(currentTime);
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
