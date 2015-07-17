@@ -51,7 +51,7 @@ public class AlarmClock extends TimePiece{
         TimePiece b=(TimePiece) that;
 
         return ((getSnoozeInterval() == that.getSnoozeInterval())
-                && a.getCurrentTime()==b.getCurrentTime());
+                && super.equals(that));
 
     }
 
