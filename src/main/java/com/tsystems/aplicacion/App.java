@@ -8,7 +8,7 @@ import java.util.EnumSet;
  * Hello world!
  *
  */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
@@ -137,6 +137,10 @@ public class App
         Helper.varMethod("Uno");
         //Bono dixit, el de verdad no el chungo ese del EJKE
         Helper.varMethod("Un","Dos","Tres","Catorce");
+
+        for(String cade: args){
+            System.out.println(cade);
+        }
     }
 
 }
