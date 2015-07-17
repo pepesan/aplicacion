@@ -40,6 +40,7 @@ public class AlarmClock extends TimePiece{
 
     @Override
     public void displayCurrentTime() {
+        //comentario chorra
         super.displayCurrentTime();
         System.out.println("Tiempo:"+getCurrentTime());
     }
