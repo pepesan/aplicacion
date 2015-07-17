@@ -1,6 +1,7 @@
 package com.tsystems.aplicacion;
 
 
+
 import java.util.EnumSet;
 
 /**
@@ -129,5 +130,13 @@ public class App
         String[] nameArray = new String[7];
         nameArray[0] = "Jon";
         nameArray[6] = "Kate";
+        for (String cadena : nameArray) {
+            System.out.println(cadena);
+        }
+        Helper.varMethod();
+        Helper.varMethod("Uno");
+        //Bono dixit, el de verdad no el chungo ese del EJKE
+        Helper.varMethod("Un","Dos","Tres","Catorce");
     }
+
 }
