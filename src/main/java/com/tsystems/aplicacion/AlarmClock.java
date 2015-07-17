@@ -47,8 +47,6 @@ public class AlarmClock extends TimePiece{
         if (!(o instanceof AlarmClock)) return false;
 
         AlarmClock that = (AlarmClock) o;
-        TimePiece a=(TimePiece)this;
-        TimePiece b=(TimePiece) that;
 
         return ((getSnoozeInterval() == that.getSnoozeInterval())
                 && super.equals(that));
