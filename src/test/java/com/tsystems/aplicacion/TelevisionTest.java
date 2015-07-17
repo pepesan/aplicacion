@@ -2,14 +2,9 @@ package com.tsystems.aplicacion;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.*;
 import static  org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.allOf;
-import static org.hamcrest.CoreMatchers.anyOf;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.CoreMatchers.sameInstance;
-import static org.hamcrest.CoreMatchers.startsWith;
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Created by pepesan on 16/7/15.
@@ -105,6 +100,35 @@ public class TelevisionTest {
         tele= new Television(10, "Sony");
         assertThat(tele.getVolume(), is(10));
         assertThat(tele.getBrand(),is("Sony"));
+    }
+    @Test
+    public void compruebaContructorConTresParametros(){
+        tele= new Television(10, "Sony",new Tuner());
+        assertThat(tele.getVolume(), is(10));
+        assertThat(tele.getBrand(),is("Sony"));
+        assertThat(tele.getTuner(),notNullValue());
+        assertThat(tele.getTuner().getChannel(),is(""));
+    }
+    @Test
+    public void compruebaContructorConTresParametrosCompletos(){
+        tele= new Television(10, "Sony",new Tuner("La Sexta"));
+        assertThat(tele.getVolume(), is(10));
+        assertThat(tele.getBrand(),is("Sony"));
+        assertThat(tele.getTuner(),notNullValue());
+        assertThat(tele.getTuner().getChannel(),is("La Sexta"));
+    }
+    @Test
+    public void compruebaSetterYGetterDeTuner(){
+        tele.setTuner(new Tuner());
+        assertThat(tele.getTuner(), notNullValue());
+        assertThat(tele.getTuner().getChannel(), is(""));
+        tele.setTuner(new Tuner("La sexta"));
+        assertThat(tele.getTuner().getChannel(), is("La sexta"));
+    }
+    @Test
+    public void compruebaGetterYSetterDeCanal(){
+        tele.gotoChannel("La sexta");
+        assertThat(tele.getCurrentChannel(),is("La sexta"));
     }
     @Test
     public void compruebaConstantes(){
