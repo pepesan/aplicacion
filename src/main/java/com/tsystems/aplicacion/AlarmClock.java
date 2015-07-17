@@ -37,6 +37,13 @@ public class AlarmClock extends TimePiece{
         public void snooze() {
         System.out.println("ZZZZZ");
     }
+
+    @Override
+    public void displayCurrentTime() {
+        super.displayCurrentTime();
+        System.out.println("Tiempo:"+getCurrentTime());
+    }
+
     // Here's a very simple version
     @Override
     public String toString() {

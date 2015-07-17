@@ -30,6 +30,14 @@ public class AlarmClockTest {
     public void pruebaCurrentTime(){
         despertador.setCurrentTime(200);
         assertThat(despertador.getCurrentTime(),is(200L));
-        
+
     }
+    @Test
+    public void pruebaCurrentTimePadre(){
+        despertador.setCurrentTime(200);
+        despertador.displayCurrentTime();
+        assertThat(despertador.getCurrentTime(),is(200L));
+
+    }
+
 }
