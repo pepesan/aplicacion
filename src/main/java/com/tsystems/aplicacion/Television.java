@@ -10,6 +10,7 @@ public class Television {
     private int volume;
     private Boolean muted;
     private int _lastvolume;
+    private Tuner tuner;
 
     public Television(){
         this(0, "RCA");
@@ -17,9 +18,14 @@ public class Television {
 
 
     public Television(int volumen, String brand) {
+        this(volumen,brand,new Tuner());
+    }
+
+    public Television(int volumen, String brand,Tuner tuner) {
         this.setVolume(volumen);
         this.setBrand(brand);
         this.muted=false;
+        this.setTuner(tuner);
     }
 
     public String getBrand() {
@@ -73,5 +79,21 @@ public class Television {
 
     public void setMuted(Boolean muted) {
         this.muted = muted;
+    }
+
+    public Tuner getTuner() {
+        return tuner;
+    }
+
+    public void setTuner(Tuner tuner) {
+        this.tuner = tuner;
+    }
+
+    public void gotoChannel(String s) {
+        getTuner().setChannel(s);
+    }
+
+    public String getCurrentChannel() {
+        return getTuner().getChannel();
     }
 }
