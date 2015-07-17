@@ -1,5 +1,6 @@
 package com.tsystems.aplicacion;
 
+import com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -23,5 +24,12 @@ public class AlarmClockTest {
         despierta.setSnoozeInterval(1000);
         despierta.setCurrentTime(2000);
         assertThat(despertador.equals(despierta),is(true));
+    }
+
+    @Test
+    public void pruebaCurrentTime(){
+        despertador.setCurrentTime(200);
+        assertThat(despertador.getCurrentTime(),is(200L));
+        
     }
 }

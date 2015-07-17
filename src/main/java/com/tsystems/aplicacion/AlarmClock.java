@@ -10,7 +10,9 @@ public class AlarmClock extends TimePiece{
     // Create an AlarmClock with the default snooze time
     public AlarmClock() {
         //snoozeInterval = 0;
-        this(0);
+        super();
+        setSnoozeInterval(0);
+
     }
     // Create an AlarmClock with the specified snooze time
     public AlarmClock(int snoozeIn) {

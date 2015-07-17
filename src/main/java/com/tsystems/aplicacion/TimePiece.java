@@ -4,7 +4,11 @@ package com.tsystems.aplicacion;
  * Created by pepesan on 17/7/15.
  */
 public class TimePiece {
-    private long currentTime = 0;
+    private long currentTime;
+
+    public TimePiece() {
+        currentTime=0;
+    }
 
     @Override
     public boolean equals(Object o) {
